@@ -1,3 +1,7 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Autocomplete example</h1>
+<div>
+  <input type="text" (input)="term$.next($event.target.value)">
+  <ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+</div>
