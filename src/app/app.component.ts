@@ -20,15 +20,15 @@ import 'rxjs/add/operator/switchMap';
 export class AppComponent {
   items:Array<string>;
   term$ = new Subject<string>();
-  cache:Object = {};
+  cache: Object = {};
 
   private search(term:string) {
+    let search = new URLSearchParams();
+
     if (this.cache[term]) {
       return Observable.of(this.cache[term]);
     }
 
-    let search = new URLSearchParams();
-    
     search.set('action', 'opensearch');
     search.set('search', term);
     search.set('format', 'json');
@@ -44,7 +44,7 @@ export class AppComponent {
     this.term$
       .debounceTime(400)
       .distinctUntilChanged()
-      .filter(term => term && term.length > 3)
+      .filter(term => term.length > 3)
       .switchMap(term => this.search(term))
       .subscribe(results => this.items = results);
   }
