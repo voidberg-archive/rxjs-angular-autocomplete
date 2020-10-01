@@ -1,3 +1,5 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 # Rxjs Angular 2 Autocomplete
 
 This is the sample code from my presentation about reactive programming.
